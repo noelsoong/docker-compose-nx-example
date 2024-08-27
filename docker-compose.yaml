@@ -1,22 +1,21 @@
-version: '3.9'
 services:
-  frontend:
-    build:
-      dockerfile: ./apps/frontend-app/Dockerfile
-      target: development
-      context: .
-    command: npm run serve:frontend-app
-    ports:
-      - "3010:4200"
-    environment:
-      API_1_URL: api-1
-      API_2_URL: api-2
-    depends_on:
-      - api-1
-      - api-2
-    volumes:
-      - .:/app
-      - /app/node_modules
+  # frontend:
+  #   build:
+  #     dockerfile: ./apps/frontend-app/Dockerfile
+  #     target: development
+  #     context: .
+  #   command: npm run serve:frontend-app
+  #   ports:
+  #     - "3010:4200"
+  #   environment:
+  #     API_1_URL: api-1
+  #     API_2_URL: api-2
+  #   depends_on:
+  #     - api-1
+  #     - api-2
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
   api-1:
     build:
       dockerfile: ./apps/api-1/Dockerfile
