@@ -1,4 +1,6 @@
-FROM node:16-alpine as development
+FROM node:20-alpine as development
+
+RUN apk add --no-cache libc6-compat python3 make g++
 
 WORKDIR /app
 

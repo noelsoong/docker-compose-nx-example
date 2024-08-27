@@ -28,8 +28,8 @@ services:
     ports:
       - "4010:3333"
       - "9010:9669"
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     environment:
       DATABASE_HOST: db
       DATABASE_PORT: 5010
@@ -50,8 +50,8 @@ services:
     ports:
       - "4020:3333"
       - "9020:9669"
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     environment:
       DATABASE_HOST: db
       DATABASE_PORT: 5010
@@ -62,16 +62,16 @@ services:
       - .:/app
       - /app/node_modules
 
-  db:
-    image: postgres:15-alpine
-    ports:
-      - '5010:5432'
-    volumes:
-      - ./docker-postgres-multiple-dbs.sh:/docker-entrypoint-initdb.d/docker-postgres-multiple-dbs.sh
-    environment:
-      POSTGRES_USER: nxsuperuser
-      POSTGRES_PASSWORD: TopSecret123
-      POSTGRES_DB_NAMES: api1,api2
+  # db:
+  #   image: postgres:15-alpine
+  #   ports:
+  #     - '5010:5432'
+  #   volumes:
+  #     - ./docker-postgres-multiple-dbs.sh:/docker-entrypoint-initdb.d/docker-postgres-multiple-dbs.sh
+  #   environment:
+  #     POSTGRES_USER: nxsuperuser
+  #     POSTGRES_PASSWORD: TopSecret123
+  #     POSTGRES_DB_NAMES: api1,api2
 
 networks:
   default:
